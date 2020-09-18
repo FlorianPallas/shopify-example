@@ -1,4 +1,6 @@
-export default {
+import { NuxtConfig } from '@nuxt/types';
+
+const config: NuxtConfig = {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
@@ -35,5 +37,13 @@ export default {
   modules: [],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
-}
+  build: {
+    publicPath: process.env.NODE_ENV !== 'production' ? '/_nuxt/' : '/assets/',
+  },
+
+  // Generate Configuration (https://nuxtjs.org/guides/configuration-glossary/configuration-generate)
+  generate: {
+    fallback: true,
+  },
+};
+export default config;

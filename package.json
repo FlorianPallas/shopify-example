@@ -1,7 +1,17 @@
 {
   "name": "shopify-example",
   "version": "1.0.0",
-  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlorianPallas/shopify-example.git"
+  },
+  "homepage": "https://github.com/FlorianPallas/shopify-example#readme",
+  "bugs": "https://github.com/FlorianPallas/shopify-example/issues",
+  "author": {
+    "email": "pallas.florian@gmail.com",
+    "name": "Florian Pallas"
+  },
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
