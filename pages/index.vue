@@ -9,11 +9,18 @@
 <script lang="ts">
 import Vue from 'vue';
 
+interface PageData {
+  products: ShopifyBuy.Product[];
+}
+
 export default Vue.extend({
-  async asyncData({ $shopify }) {
+  async asyncData({ $shopify }): Promise<Partial<PageData>> {
     return {
       products: await $shopify.product.fetchAll(),
     };
+  },
+  data() {
+    return {} as Partial<PageData>;
   },
 });
 </script>
