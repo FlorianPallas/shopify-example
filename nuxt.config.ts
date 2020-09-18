@@ -34,7 +34,13 @@ const config: NuxtConfig = {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: ['nuxt-shopify'],
+
+  // Shopify Configuration (https://github.com/Gomah/nuxt-shopify#readme)
+  shopify: {
+    domain: process.env.SHOPIFY_DOMAIN,
+    storefrontAccessToken: process.env.SHOPIFY_TOKEN,
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
