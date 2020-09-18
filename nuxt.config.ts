@@ -19,7 +19,7 @@ const config: NuxtConfig = {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: ['normalize.css', '~/assets/main.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
@@ -31,7 +31,12 @@ const config: NuxtConfig = {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/style-resources',
   ],
+
+  styleResources: {
+    scss: ['~/assets/vars.scss', '~/assets/mixins.scss'],
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: ['nuxt-shopify'],
