@@ -1,4 +1,6 @@
 import { NuxtConfig } from '@nuxt/types';
+import fetch from 'node-fetch';
+import shopify from 'shopify-buy';
 
 const config: NuxtConfig = {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
@@ -55,6 +57,25 @@ const config: NuxtConfig = {
   // Generate Configuration (https://nuxtjs.org/guides/configuration-glossary/configuration-generate)
   generate: {
     fallback: true,
+    routes: async () => {
+      if (process.env.SHOPIFY_DOMAIN === undefined || process.env.SHOPIFY_TOKEN === undefined) {
+        return [];
+      }
+
+      const client = shopify.buildClient(
+        {
+          domain: process.env.SHOPIFY_DOMAIN,
+          storefrontAccessToken: process.env.SHOPIFY_TOKEN,
+        },
+        // @ts-ignore
+        fetch
+      );
+
+      const products = await client.product.fetchAll();
+      console.log(products);
+
+      return products.map((p) => `/products/${(p as any).handle}`);
+    },
   },
 };
 export default config;
