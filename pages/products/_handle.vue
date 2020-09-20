@@ -9,6 +9,8 @@
       <div class="product__images">
         <img v-for="(image, imageIndex) in product.images" :key="imageIndex" :src="image.src" />
       </div>
+      <br />
+      <button @click="addToCart()">Add to Cart</button>
     </div>
   </div>
 </template>
@@ -38,6 +40,17 @@ export default Vue.extend({
   },
   data() {
     return {} as Partial<PageData>;
+  },
+  methods: {
+    addToCart() {
+      if (this.product === undefined) {
+        return;
+      }
+      this.$store.dispatch('addToCart', {
+        variantId: this.product.variants[0].id,
+        quantity: 1,
+      } as ShopifyBuy.LineItemToAdd);
+    },
   },
 });
 </script>
