@@ -4,3 +4,9 @@
     <Nuxt />
   </div>
 </template>
+
+<style lang="scss">
+.site-wrapper > .wrapper {
+  margin-right: 40rem !important;
+}
+</style>

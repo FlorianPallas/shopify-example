@@ -11,7 +11,6 @@
       </div>
       <br />
       <button @click="addToCart()">Add to Cart</button>
-      <button>Buy Now</button>
     </div>
   </div>
 </template>
