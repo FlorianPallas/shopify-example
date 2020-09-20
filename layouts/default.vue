@@ -1,3 +1,6 @@
 <template>
-  <Nuxt />
+  <div class="site-wrapper">
+    <Cart></Cart>
+    <Nuxt />
+  </div>
 </template>
